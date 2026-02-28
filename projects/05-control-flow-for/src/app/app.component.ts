@@ -50,5 +50,42 @@ export interface Car {
   styleUrl: 'app.component.css',
 })
 export class AppComponent {
-  carList: Car[] = []; // Set carList to an empty array for testing the empty case
+  carList: Car[] = [
+    {
+      make: 'Foyoda',
+      model: 'Famery',
+      miles: 54354,
+      price: 1000,
+      year: 2022,
+      transmission: 'Automatic',
+      image: '../assets/blue-car.jpeg',
+    },
+    {
+      make: 'Ronda',
+      model: 'Disaccord',
+      miles: 100000,
+      price: 230,
+      year: 1991,
+      transmission: 'Automatic',
+      image: '../assets/red-car.jpeg',
+    },
+    {
+      make: 'Specific Motors',
+      model: 'Spoke',
+      miles: 100000,
+      price: 230,
+      year: 1991,
+      transmission: 'Automatic',
+      image: '../assets/blue-car.jpeg',
+    },
+    {
+      make: 'Fjord',
+      model: 'Pocus',
+      miles: 1,
+      price: 22330,
+      year: 2023,
+      transmission: 'Automatic',
+      image: '../assets/red-car.jpeg',
+    },
+  ];
 }
