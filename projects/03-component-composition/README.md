@@ -16,7 +16,7 @@ ng serve 03-component-composition
 
 ## Instructions
 
-1. In `src/app.component.ts`, update the component template to refer to the `UserInfoComponent`. Create this comoponent with the following command from the root folder of the project:
+1. In `src/app.component.ts`, update the component template to refer to the `UserInfoComponent`. Create this component with the following command from the root folder of the project:
 
 ```bash
 ng generate component userinfo --project 03-component-composition
