@@ -10,9 +10,14 @@ import { ListingComponent } from './listing/listing.component';
     <h1>Saved Cars {{ savedCarList.length }}</h1>
     <section class="container">
       @for (carEntry of carList; track carEntry) {
-        <app-listing [car]="carEntry" />
+        <app-listing [car]="carEntry" (carSaved)="addCarToSaved($event)" />
       } 
     </section>
+    <article>
+      @for (savedCarEntry of savedCarList; track savedCarEntry) {
+        <p>{{ savedCarEntry.make }} {{ savedCarEntry.model }}</p>
+      }
+    </article>
   `,
   styles: [],
 })
@@ -52,4 +57,8 @@ export class AppComponent {
       transmission: 'Automatic',
     },
   ];
+
+  addCarToSaved(car: Car) {
+    this.savedCarList.push(car);
+  }
 }
