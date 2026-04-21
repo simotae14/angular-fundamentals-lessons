@@ -1,10 +1,26 @@
-import { Component } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
+import { UserService } from './user.service';
+import { User } from './data';
+import { UserInfoComponent } from './user-info/user-info.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  template: ` <h1>User Listing</h1> `,
+  imports: [UserInfoComponent],
+  template: `
+    <h1>User Listing</h1>
+    @for (user of userData; track user.id) {
+      <app-user-info [user]="user" />
+    }
+  `,
 })
-export class AppComponent {
-  constructor() {}
+export class AppComponent implements OnInit {
+  // this one is a Singleton instance since it is spread in the root component
+  userService = inject(UserService);
+  userData: User[] = [];
+
+  async ngOnInit(): Promise<void> {
+    const data = await this.userService.getUserData();
+    this.userData = data;
+  }
 }
